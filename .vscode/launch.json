@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Electron: Main",
+        "type": "node",
+        "request": "launch",
+        "program": "$Accounting/node_modules/.bin/electron",
+        "args": ["."],
+        "runtimeArgs": ["--inspect=9222"],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "sourceMaps": true,
+        "outFiles": ["$Accounting/.webpack/main/**/*.js"]
+      },
+      {
+        "name": "Electron: Renderer",
+        "type": "chrome",
+        "request": "attach",
+        "port": 9223,
+        "webRoot": "$Accounting",
+        "sourceMaps": true
+      }
+    ]
+  }
