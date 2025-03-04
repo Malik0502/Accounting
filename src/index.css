@@ -20,43 +20,38 @@ body, html{
   background-color: #1A1A1A;
 }
 
-form{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #2D2D2D;
-  width: 40%;
-  min-height: 55%;
-  height: 55%;
-  box-shadow: 0 6px 25px 0 rgba(0, 0, 0, 0.50);
-        border-radius: 25px;
-}
-
-#formSubmit{
+.btn.btn-outline{
   border-color: #CD86FF;
   color: #CD86FF;
 }
 
-#formSubmit:hover{
+.btn.btn-outline:hover{
   background-color: #CD86FF;
   color: white;
 }
 
 #inputDate{
+  color-scheme: dark;
   background-color: #262626;
   border-color: transparent;
   color: white;
   border-radius: 10px;
 }
 
-#inputFrom{
+.inputFrom{
+  color-scheme: dark;
+  min-width: 100%;
+  min-height: 42px;
   background-color: #262626;
   border-color: transparent;
   color: white;
   border-radius: 10px;
 }
 
-#inputTo{
+.inputTo{
+  color-scheme: dark;
+  min-width: 100%;
+  min-height: 42px;
   background-color: #262626;
   border-color: transparent;
   color: white;

@@ -27,6 +27,7 @@
  */
 
 import './index.css';
+import './styles/table.css';
 import { FormHandler } from './scripts/Form/formHandler';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -35,8 +36,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
+
 document.getElementById("formSubmit").addEventListener("click", () => {
-    let formHandler = new FormHandler();
-    formHandler.submitForm();
-  })
-  
+  let formHandler = new FormHandler()  
+  formHandler.submitForm();
+})
+
+document.getElementById("addTableButton").addEventListener("click", () => {
+  let formHandler = new FormHandler()  
+  formHandler.addTableRow();
+})
