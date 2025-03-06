@@ -32,10 +32,7 @@ import { FormHandler } from './scripts/Form/formHandler';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-
-
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
-
 
 document.getElementById("formSubmit").addEventListener("click", () => {
   let formHandler = new FormHandler()  
