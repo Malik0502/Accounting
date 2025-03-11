@@ -82,6 +82,10 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# Database File
+*.db
+AccountingDb.db
+
 # Webpack
 .webpack/
 

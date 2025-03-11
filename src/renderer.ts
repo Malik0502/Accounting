@@ -35,11 +35,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
 document.getElementById("formSubmit").addEventListener("click", () => {
-  let formHandler = new FormHandler()  
-  formHandler.submitForm();
-})
+  let formHandler = new FormHandler();
+  const formData = formHandler.submitForm(); 
+  window.electronAPI.sendFormData(formData);
+  console.log(formData.Date.toString());
+});
 
 document.getElementById("addTableButton").addEventListener("click", () => {
   let formHandler = new FormHandler()  
   formHandler.addTableRow();
 })
+

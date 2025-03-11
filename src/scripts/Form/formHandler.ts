@@ -1,11 +1,10 @@
-import { FormEntity } from "./FormEntity";
-import { TimeFrom } from "./TimeFrom";
-import { TimeTo } from "./TimeTo";
+import { WorkEntity } from "../Database/WorkEntity";
+import { TimeEntity } from "../Database/TimeEntity";
 
 export class FormHandler{
     
-    public submitForm() : FormEntity{
-        let entity : FormEntity = new FormEntity();
+    public submitForm() : WorkEntity{
+        let workEntity : WorkEntity = new WorkEntity();
 
         const table = document.getElementById("timeTable") as HTMLTableElement
         const tableRows = table.querySelectorAll("tbody tr")
@@ -15,29 +14,15 @@ export class FormHandler{
             const inputTo = element.querySelector(".inputTo") as HTMLInputElement
 
             if(inputFrom.value && inputTo.value){
-                this.addToEntityArray(inputFrom.value, inputTo.value, entity);
+                workEntity.Times.push(new TimeEntity(inputFrom.value, inputTo.value))
             }
         });
         
-        entity.workDate = this.formatDate(new Date((document.getElementById('inputDate') as HTMLInputElement).value));        
-        entity.commit = (document.getElementById('inputCommit') as HTMLInputElement).value;
-        entity.description = (document.getElementById('inputDescription') as HTMLInputElement).value;
+        workEntity.Date = (document.getElementById('inputDate') as HTMLInputElement).value;        
+        workEntity.CommitMessage = (document.getElementById('inputCommit') as HTMLInputElement).value;
+        workEntity.Description = (document.getElementById('inputDescription') as HTMLInputElement).value;
 
-        for (let index = 0; index < entity.timeFrom.length; index++) {
-            const element = entity.timeFrom[index];
-            console.log("Index" + index)
-            console.log("Stunden:" + " " + element.hours);
-            console.log("Minuten" + " " + element.minutes);
-        }
-
-        for (let index = 0; index < entity.timeTo.length; index++) {
-            const element = entity.timeTo[index];
-            console.log("Index" + index)
-            console.log("Stunden:" + " " + element.hours);
-            console.log("Minuten" + " " + element.minutes);
-        }
-
-        return entity;
+        return workEntity;
     }
 
     public addTableRow() : void{
@@ -63,14 +48,6 @@ export class FormHandler{
         tableRow.appendChild(tableDTwo);
 
         tableBody.appendChild(tableRow);
-    }
-
-    private addToEntityArray(timeFromValue : string, timeFromToValue : string, entity : FormEntity) : void{
-        const[hoursFrom, minutesFrom] = timeFromValue.split(':').map(Number);
-        const[hoursTo, minutesTo] = timeFromToValue.split(':').map(Number);
-
-        entity.timeFrom.push(new TimeFrom(hoursFrom, minutesFrom))
-        entity.timeTo.push(new TimeTo(hoursTo, minutesTo))
     }
 
     private formatDate(date : Date) : Date{

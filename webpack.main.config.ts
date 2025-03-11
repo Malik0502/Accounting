@@ -15,6 +15,11 @@ export const mainConfig: Configuration = {
   },
   plugins,
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
+    extensions: [".js", ".ts", ".jsx", ".tsx", ".css"],
+    fallback: {
+      "fs": false, // fs kann im Renderer nicht verwendet werden
+      "path": require.resolve("path-browserify"),
+    },
   },
+  
 };
