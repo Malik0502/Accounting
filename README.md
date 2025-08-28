@@ -1,7 +1,6 @@
 # Work Hours Tracker
 
 A lightweight desktop application built with **Electron** and **TypeScript** to easily log, manage, and review your working hours.  
-The app is intentionally built **without any frontend frameworks** (Vanilla TS) to keep it simple, clear, and easy to extend.
 
 ---
 
